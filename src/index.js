@@ -7,6 +7,8 @@ import models from "@cloud-annotations/models";
 import styles from "./App.module.css";
 import "./styles.css";
 
+import QuestionList from "./components/questions"
+
 const getRetinaContext = canvas => {
     const ctx = canvas.getContext("2d");
     const scale = window.devicePixelRatio;
@@ -75,7 +77,7 @@ const getRetinaContext = canvas => {
     };
 };
 
-const ImageUpload = ({setPrediction}) => {
+const ImageUpload = ({ setPrediction }) => {
     const [model, setModel] = useState(undefined);
     const [preview, setPreview] = useState(undefined);
     const [resultsCanvas, setResultsCanvas] = useState(undefined);
@@ -113,7 +115,7 @@ const ImageUpload = ({setPrediction}) => {
             ctx.setHeight(imgHeight);
 
             const predictions = await model.classify(e.target);
-            
+
             var arr = []
             predictions
                 .filter(prediction => prediction.score > 0.5)
@@ -183,8 +185,22 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <ImageUpload setPrediction = {(prediction) => this.setPrediction(prediction)} />
+                <ImageUpload setPrediction={(prediction) => this.setPrediction(prediction)} />
                 {this.renderPrediction()}
+                <div style={{ padding: 30}}>
+                    <div style={{ padding: 10 }}>
+                        <QuestionList question='Is he breathing lightly?' tag='Q1' />
+                    </div>
+                    <div style={{ padding: 10 }}>
+                        <QuestionList question='Is he wheezing?' tag='Q2' />
+                    </div>
+                    <div style={{ padding: 10 }}>
+                        <QuestionList question='Is he unconscious?' tag='Q3' />
+                    </div>
+                    {/* <div style={{ padding: 10 }}>
+                        <Button></Button>
+                    </div> */}
+                </div>
             </div>
         )
     }
