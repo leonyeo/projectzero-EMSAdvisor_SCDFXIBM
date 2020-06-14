@@ -44,7 +44,7 @@ The model is integrated with our front-end interface, the React webapp, so that 
 
 ## The architecture
 
-![Video transcription/translation app](https://developer.ibm.com/developer/tutorials/cfc-starter-kit-speech-to-text-app-example/images/cfc-covid19-remote-education-diagram-2.png)
+<img src="src/components/readMe.png" alt="My cool logo"/>
 
 1. The user navigates to the site and uploads an image.
 2. IBM Cloud Annotations model classifies and identifies image features.
