@@ -35,7 +35,7 @@ Our solution aims to relieve the burden on SCDF of having to entertain non-emerg
 
 ## Demo video
 
-[![Watch the video](https://youtu.be/mhXcSJAJN1Q)](https://youtu.be/mhXcSJAJN1Q)
+[![Watch the video](http://img.youtube.com/vi/mhXcSJAJN1Q/0.jpg)](https://youtu.be/mhXcSJAJN1Q)
 
 ## The architecture
 
