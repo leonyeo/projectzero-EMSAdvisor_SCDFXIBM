@@ -198,6 +198,7 @@ class Questions extends React.Component {
         this.state = {
             prediction: null,
             questions_list: null,
+            answers: Array(3).fill(true),
         };
     }
 
@@ -213,8 +214,8 @@ class Questions extends React.Component {
         }
         else if (prediction[0] === "blood") {
             questions_list = [
-                "Is he breathing lightly?",
-                "Is he wheezing?",
+                "Has the bleeding stopped?",
+                "Does he look pale?",
                 "Is he unconscious?",
             ]
         }
@@ -240,13 +241,33 @@ class Questions extends React.Component {
             <div>No problems detected</div>
         );
         return questions_list.map((question, index) => {
-            let tag = `Q${index+1}`
             return (
                 <div style={{ padding: 10 }}>
-                    <QuestionList question={question} tag={tag} />
+                    <QuestionList
+                        question={question}
+                        tag={index}
+                        setAnswer={(index, ans) => {
+                            let answers = this.state.answers;
+                            answers[index] = ans;
+                            this.setState({
+                                answers: answers,
+                            });
+                        }}
+                    />
                 </div>
             );
         });
+    }
+
+    getCondition() {
+        let prediction = this.state.prediction;
+        if (!prediction) return null;
+        if (prediction[0] === "clutching chest") {
+            return 'cardiac'
+        }
+        else {
+            return '0'
+        }
     }
 
     render() {
@@ -255,7 +276,16 @@ class Questions extends React.Component {
                 {this.renderPrediction()}
                 {this.renderQuestions()}
                 <div style={{ padding: 10 }}>
-                    <button></button>
+                    <button className={styles.button}>
+                        <Link to={{
+                        pathname: "/advice",
+                        state: {
+                            condition: this.getCondition(),
+                        }}}
+                        >
+                            Proceed
+                        </Link>
+                    </button>
                 </div>
             </div>
         )

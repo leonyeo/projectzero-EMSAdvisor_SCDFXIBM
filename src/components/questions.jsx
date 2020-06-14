@@ -24,7 +24,7 @@ const GreenCheckbox = withStyles({
     checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-const QuestionList = ({ question, tag }) => {
+const QuestionList = ({ question, tag, setAnswer }) => {
     const classes = useStyles;
 
     const [state, setState] = React.useState({
@@ -33,11 +33,12 @@ const QuestionList = ({ question, tag }) => {
 
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
+        setAnswer(tag, event.target.checked)
     };
 
     return (
         <Card className={classes.root} elevation={4}>
-            <CardHeader style={{ backgroundColor: "#388186", color: "#ffffff" }} title={tag}
+            <CardHeader style={{ backgroundColor: "#388186", color: "#ffffff" }} title={`Q${tag+1}`}
                 titleTypographyProps={{ variant: "subtitle1" }} />
             <CardActions style={{ backgroundColor: "#F9FAFB" }}>
                 <Typography className={classes.questionTitle} style={{ width: '80%', display: 'inline-block'}} >
