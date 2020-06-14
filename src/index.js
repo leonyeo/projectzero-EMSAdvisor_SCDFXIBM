@@ -296,7 +296,7 @@ class Questions extends React.Component {
                 <Card style={{borderRadius: 20}} elevation={4}>
                     {this.renderPrediction()}
                 </Card>
-                <h3>Some Questions</h3>
+                <h3>Checklist</h3>
                 {this.renderQuestions()}
                 <div style={{ padding: 10 }}>
                     <Grid container justify='center'>
