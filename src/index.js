@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import ReactDOM from "react-dom";
 
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
@@ -10,9 +10,13 @@ import styles from "./App.module.css";
 import "./styles.css";
 
 import QuestionList from "./components/questions"
+import Diagnosis from "./components/diagnosis"
+
 import Card from '@material-ui/core/Card';
 import {Typography} from '@material-ui/core';
 import CardActions from '@material-ui/core/CardActions';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 const getRetinaContext = canvas => {
     const ctx = canvas.getContext("2d");
@@ -179,16 +183,21 @@ class App extends React.Component {
             <div>
                 <ImageUpload setPrediction={(prediction) => this.setPrediction(prediction)} />
                 {this.state.prediction ? (
-                    <button className={styles.button}>
-                        <Link to={{
-                        pathname: "/questions",
-                        state: {
-                            prediction: this.state.prediction,
-                        }}}
-                    >
-                        Proceed
-                        </Link>
-                    </button>
+                    <Grid container justify='center'>
+                        <Button 
+                            style={{backgroundColor:"#388186", color:"#ffffff"}} 
+                            variant="contained" 
+                            component={Link} 
+                            to={{
+                                pathname: "/questions",
+                                state: {
+                                    prediction: this.state.prediction,
+                                }
+                            }}
+                        >
+                            PROCEED
+                        </Button>
+                    </Grid>
                 ) : null}
             </div>
         )
@@ -285,26 +294,23 @@ class Questions extends React.Component {
                 </Card>
                 {this.renderQuestions()}
                 <div style={{ padding: 10 }}>
-                    <button className={styles.button}>
-                        <Link to={{
-                        pathname: "/advice",
-                        state: {
-                            condition: this.getCondition(),
-                        }}}
+                    <Grid container justify='center'>
+                        <Button 
+                            style={{backgroundColor:"#388186", color:"#ffffff"}} 
+                            variant="contained" 
+                            component={Link} 
+                            to={{
+                                pathname: "/diagnosis",
+                                state: {
+                                    condition: this.getCondition(),
+                                }
+                            }}
                         >
-                            Proceed
-                        </Link>
-                    </button>
+                            DIAGNOSE
+                        </Button>
+                    </Grid>
                 </div>
             </div>
-        )
-    }
-}
-
-class Advice extends React.Component {
-    render() {
-        return (
-            null
         )
     }
 }
@@ -314,7 +320,7 @@ const routing = (
         <div className={styles.wrapper}>
             <Route exact path="/" component={App} />
             <Route path="/questions" component={Questions} />
-            <Route path="/advice" component={Advice} />
+            <Route path="/diagnosis" component={Diagnosis} />
         </div>
     </Router>
 )
