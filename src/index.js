@@ -10,6 +10,9 @@ import styles from "./App.module.css";
 import "./styles.css";
 
 import QuestionList from "./components/questions"
+import Card from '@material-ui/core/Card';
+import {Typography} from '@material-ui/core';
+import CardActions from '@material-ui/core/CardActions';
 
 const getRetinaContext = canvas => {
     const ctx = canvas.getContext("2d");
@@ -230,7 +233,11 @@ class Questions extends React.Component {
         if (!prediction) return null;
         return prediction.map((predict) => {
             return (
-                <div>{predict}</div>
+                <CardActions style={{ backgroundColor: "#F9FAFB" }}>
+                    <Typography style={{ width: '80%', display: 'inline-block'}} >
+                        {predict}
+                    </Typography>
+                </CardActions>
             );
         })
     }
@@ -273,7 +280,9 @@ class Questions extends React.Component {
     render() {
         return (
             <div style={{ padding: 30}}>
-                {this.renderPrediction()}
+                <Card style={{borderRadius: 20}} elevation={4}>
+                    {this.renderPrediction()}
+                </Card>
                 {this.renderQuestions()}
                 <div style={{ padding: 10 }}>
                     <button className={styles.button}>
