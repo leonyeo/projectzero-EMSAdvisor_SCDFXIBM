@@ -23,9 +23,7 @@ This repo contains our submission for the SCDF X IBM Lifesaver's Innovation Chal
 ### What's the problem?
 
 There is a limited amount of manpower in SCDF emergency medical services (EMS). Therefore, it is of utmost importance that EMS only tend to the critical cases instead of the non-emergency ones. People have misusing the EMS services for minor and less critical cases and this causes a wastage of SCDF's precious resources. As such, SCDF might possibly overlook people who are in dire need of help.
-On the other hand, there are also members of the public who avoid dialling 995 for EMS due to over-caution and misguided interpretations of the situation at hand.
-
-People may not be equipped with sufficient knowledge to identify the medical emergency, not to mention being able to offer medical help. 
+On the other hand, there are also members of the public who avoid dialling 995 for EMS due to over-caution and misguided interpretations of the situation at hand. People may not be equipped with sufficient knowledge to identify the medical emergency, not to mention being able to offer medical help. 
 
 ### How can technology help?
 
@@ -34,9 +32,7 @@ Our solution enables the members of the public to perform the suitable first aid
 
 ### The idea
 
-Our solution, backed by IBM Cloud and Watson Services, will relieve the burden on SCDF of having to entertain non-emergency cases. We utilised the IBM Cloud Annotations and Watson Machine Learning Services to train an image classification model to decipher the conditions posed by the victim.  We trained the model using multiple images of people having medical conditions such as physical injury, cardiac arrest, falls, heat stroke. 
-
-The model is integrated with our front-end interface, the React webapp, so that the members of the public do not need to download a mobile application to access our solution.
+Our solution, backed by IBM Cloud and Watson Services, will relieve the burden on SCDF of having to entertain non-emergency cases. We utilised the IBM Cloud Annotations and Watson Machine Learning Services to train an image classification model to decipher the conditions posed by the victim.  We trained the model using multiple images of people having medical conditions such as physical injury, cardiac arrest, falls, heat stroke. The model is integrated with our front-end interface, the React webapp, so that the members of the public do not need to download a mobile application to access our solution.
 
 ## Demo video
 
@@ -44,7 +40,7 @@ The model is integrated with our front-end interface, the React webapp, so that 
 
 ## The architecture
 
-<img src="src/components/readMe.png" alt="My cool logo"/>
+<img src="https://github.com/leonyeo/projectzero-EMSAdvisor_SCDFXIBM/blob/master/src/components/readMe.PNG"/>
 
 1. The user navigates to the site and uploads an image.
 2. IBM Cloud Annotations model classifies and identifies image features.
@@ -54,10 +50,6 @@ The model is integrated with our front-end interface, the React webapp, so that 
 ## Long description
 
 [More detail is available here](DESCRIPTION.md)
-
-## Project roadmap
-
-![Roadmap](roadmap.jpg)
 
 ## Getting started
 
