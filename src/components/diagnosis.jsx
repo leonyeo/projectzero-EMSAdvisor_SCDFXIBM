@@ -151,7 +151,7 @@ class Diagnosis extends React.Component {
                     </div>
                 ) : null}
 
-                <Grid container justify='center' style={{display: "flex"}}>
+                <Grid container justify='center' style={{display: "flex", "padding-right": 15, "padding-left": 15}}>
                     {this.state.step > 0 ? (
                         <Button 
                             style={{backgroundColor:"#388186", color:"#ffffff", flex: "1"}} 
