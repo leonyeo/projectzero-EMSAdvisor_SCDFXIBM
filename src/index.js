@@ -122,9 +122,7 @@ const ImageUpload = ({ setPrediction }) => {
             predictions
                 .filter(prediction => prediction.score > 0.5)
                 .forEach((prediction, i) => {
-                    const label = `${prediction.label} ${(prediction.score * 100).toFixed(
-                        1
-                    )}%`;
+                    const label = `${prediction.label}`;
                     arr.push(label);
                 });
             setPrediction(arr);
@@ -173,42 +171,92 @@ class App extends React.Component {
         });
     }
 
-    renderPrediction() {
-        let prediction = this.state.prediction;
-        if (!prediction) return null;
-        return prediction.map((predict) => {
-            return (
-                <div>{predict}</div>
-            )
-        })
-    }
-
     render() {
         return (
             <div>
                 <ImageUpload setPrediction={(prediction) => this.setPrediction(prediction)} />
-                {this.renderPrediction()}
+                {this.state.prediction ? (
+                    <button className={styles.button}>
+                        <Link to={{
+                        pathname: "/questions",
+                        state: {
+                            prediction: this.state.prediction,
+                        }}}
+                    >
+                        Proceed
+                        </Link>
+                    </button>
+                ) : null}
             </div>
         )
     }
 }
 
 class Questions extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            prediction: null,
+            questions_list: null,
+        };
+    }
+
+    componentDidMount() {
+        const prediction = this.props.location.state.prediction;
+        let questions_list;
+        if (prediction[0] === "clutching chest") {
+            questions_list = [
+                "Is he breathing lightly?",
+                "Is he wheezing?",
+                "Is he unconscious?",
+            ]
+        }
+        else if (prediction[0] === "blood") {
+            questions_list = [
+                "Is he breathing lightly?",
+                "Is he wheezing?",
+                "Is he unconscious?",
+            ]
+        }
+        this.setState({
+            prediction: prediction,
+            questions_list: questions_list,
+        });
+    }
+
+    renderPrediction() {
+        let prediction = this.state.prediction;
+        if (!prediction) return null;
+        return prediction.map((predict) => {
+            return (
+                <div>{predict}</div>
+            );
+        })
+    }
+
+    renderQuestions() {
+        let questions_list = this.state.questions_list;
+        if (!questions_list) return (
+            <div>No problems detected</div>
+        );
+        return questions_list.map((question, index) => {
+            let tag = `Q${index+1}`
+            return (
+                <div style={{ padding: 10 }}>
+                    <QuestionList question={question} tag={tag} />
+                </div>
+            );
+        });
+    }
+
     render() {
         return (
             <div style={{ padding: 30}}>
+                {this.renderPrediction()}
+                {this.renderQuestions()}
                 <div style={{ padding: 10 }}>
-                    <QuestionList question='Is he breathing lightly?' tag='Q1' />
+                    <button></button>
                 </div>
-                <div style={{ padding: 10 }}>
-                    <QuestionList question='Is he wheezing?' tag='Q2' />
-                </div>
-                <div style={{ padding: 10 }}>
-                    <QuestionList question='Is he unconscious?' tag='Q3' />
-                </div>
-                {/* <div style={{ padding: 10 }}>
-                    <Button></Button>
-                </div> */}
             </div>
         )
     }
