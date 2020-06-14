@@ -182,6 +182,7 @@ class App extends React.Component {
         return (
             <div>
                 <ImageUpload setPrediction={(prediction) => this.setPrediction(prediction)} />
+                <br />
                 {this.state.prediction ? (
                     <Grid container justify='center'>
                         <Button 
@@ -210,7 +211,7 @@ class Questions extends React.Component {
         this.state = {
             prediction: null,
             questions_list: null,
-            answers: Array(3).fill(true),
+            answers: Array(3).fill(false),
         };
     }
 
