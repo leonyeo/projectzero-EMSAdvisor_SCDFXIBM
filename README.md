@@ -1,10 +1,8 @@
 # EMS Advisor - SCDF X IBM Lifesaver's Innovation Challenge: Call for Code 2020
 
-[![License](https://img.shields.io/badge/License-Apache2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0) [![Slack](https://img.shields.io/badge/Join-Slack-blue)](https://callforcode.org/slack) [![Website](https://img.shields.io/badge/View-Website-blue)](https://code-and-response.github.io/Project-Sample/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Website](https://img.shields.io/badge/View-Website-blue)]()
 
-A basic GitHub repository example for Call for Code submissions and those projects that join the Code and Response initiative. Not all sections or files are required. You can make this as simple or as in-depth as you need.
-
-*Read this in other languages: [English](README.md), [한국어](README.ko.md), [português](README.pt_br.md).*
+This repo contains our submission for the SCDF X IBM Lifesaver's Innovation Challenge: Call for Code 2020
 
 ## Contents
 
@@ -14,11 +12,8 @@ A basic GitHub repository example for Call for Code submissions and those projec
 1. [Long description](#long-description)
 1. [Project roadmap](#project-roadmap)
 1. [Getting started](#getting-started)
-1. [Running the tests](#running-the-tests)
 1. [Live demo](#live-demo)
 1. [Built with](#built-with)
-1. [Contributing](#contributing)
-1. [Versioning](#versioning)
 1. [Authors](#authors)
 1. [License](#license)
 1. [Acknowledgments](#acknowledgments)
@@ -45,10 +40,10 @@ It's imperative that learning and creating can continue when educational institu
 
 ![Video transcription/translation app](https://developer.ibm.com/developer/tutorials/cfc-starter-kit-speech-to-text-app-example/images/cfc-covid19-remote-education-diagram-2.png)
 
-1. The user navigates to the site and uploads a video file.
-2. Watson Speech to Text processes the audio and extracts the text.
-3. Watson Translation (optionally) can translate the text to the desired language.
-4. The app stores the translated text as a document within Object Storage.
+1. The user navigates to the site and uploads an image.
+2. IBM Cloud Annotations model classifies and identifies image features.
+3. The user can answer additional question for a more accurate diagnosis.
+4. The site displays instructions for responding to the situation.
 
 ## Long description
 
@@ -64,26 +59,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```bash
-dnf install wget
-wget http://www.example.com/install.sh
-bash install.sh
-```
+Install the latest version of Node at [https://nodejs.org/en/](https://nodejs.org/en/)
 
 `git clone` the repo and `cd` into it by running the following command:
 
 ```bash
-git clone https://github.com/cloud-annotations/classification-react.git
-cd classification-react
+git clone https://github.com/leonyeo/projectzero-EMSAdvisor_SCDFXIBM.git
+cd projectzero-EMSAdvisor_SCDFXIBM
 ```
 
 ### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be, for example
 
 ```bash
 npm install
@@ -98,62 +83,30 @@ npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why, if you were using something like `mocha` for instnance
-
-```bash
-npm install mocha --save-dev
-vi test/test.js
-./node_modules/mocha/bin/mocha
-```
-
-### And coding style tests
-
-Explain what these tests test and why, if you chose `eslint` for example
-
-```bash
-npm install eslint --save-dev
-npx eslint --init
-npx eslint sample-file.js
-```
+You can also view it on your mobile browser by accessing the IP address provided in the cmd line.
 
 ## Live demo
 
-You can find a running system to test at [callforcode.mybluemix.net](http://callforcode.mybluemix.net/)
+You can find a running system to test at []()
 
 ## Built with
 
-* [IBM Cloudant](https://cloud.ibm.com/catalog?search=cloudant#search_results) - The NoSQL database used
-* [IBM Cloud Functions](https://cloud.ibm.com/catalog?search=cloud%20functions#search_results) - The compute platform for handing logic
-* [IBM API Connect](https://cloud.ibm.com/catalog?search=api%20connect#search_results) - The web framework used
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+* [IBM Cloud Annotations](https://cloud.annotations.ai/login) - Image classification tool
+* [IBM Watson Machine Learning](https://www.ibm.com/sg-en/cloud/machine-learning) - Machine Learning instance powering IBM Cloud Annotations
+* [React](https://reactjs.org/) - Javascript Web Framework
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/Code-and-Response/Project-Sample/graphs/contributors) who participated in this project.
+* **Leon Yeo** -  [leonyeo](https://github.com/leonyeo)
+* **Poon Sin Ta** -  [poonsinta96](https://github.com/poonsinta96)
+* **Qiu Hui Qian** -  [qhq97](https://github.com/qhq97)
+* **Serene Loo** -  [serene loo](https://github.com/sereneloo)
+* **Yandy Yee** -  [yandyyee](https://github.com/yandyyee)
 
 ## License
 
-This project is licensed under the Apache 2 License - see the [LICENSE](LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 
-* Based on [Billie Thompson's README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2).
+* Based on [IBM Cloud Annotations Classification Demo](https://github.com/cloud-annotations/classification-react).
