@@ -213,6 +213,7 @@ class Questions extends React.Component {
             prediction: null,
             questions_list: null,
             answers: Array(3).fill(false),
+            path: null
         };
     }
 
@@ -299,14 +300,14 @@ class Questions extends React.Component {
                 {this.renderQuestions()}
                 <div style={{ padding: 10 }}>
                     <Grid container justify='center'>
-                        <Button 
+                       <Button 
                             style={{backgroundColor:"#388186", color:"#ffffff"}} 
                             variant="contained" 
                             component={Link} 
                             to={{
-                                pathname: "/diagnosis",
+                                pathname: this.state.path,
                                 state: {
-                                    condition: this.getCondition(),
+                                    condition: this.getCondition() == 'cardiac' ? this.state.path = '/diagnosis' : this.state.path = '/diagnosis_bleeding' ,
                                 }
                             }}
                         >
