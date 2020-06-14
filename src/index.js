@@ -311,7 +311,8 @@ class Questions extends React.Component {
                             }}
                         >
                             DIAGNOSE
-                        </Button>:
+                        </Button>
+                        {/* :
                         <Button 
                             style={{backgroundColor:"#388186", color:"#ffffff"}} 
                             variant="contained" 
@@ -324,7 +325,7 @@ class Questions extends React.Component {
                             }}
                         >
                             DIAGNOSE
-                        </Button>
+                        </Button> */}
                     </Grid>
                 </div>
             </div>
