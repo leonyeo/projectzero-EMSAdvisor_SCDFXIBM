@@ -54,7 +54,7 @@ const DiagnosisBleeding = () => {
                             Excess Bleeding
           </Typography>
                             <Typography variant="body2" color="textSecondary" component="p">
-                            Blood loss from bleeding tissue through a natural opening in the body, such as the mouth, vagina, nose.
+                            Blood loss from bleeding tissue through a natural opening in the body, such as the mouth and nose.
           </Typography>
                         </CardContent>
                     </CardActionArea>
