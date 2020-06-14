@@ -4,4 +4,3 @@ node_modules/
 .env.development
 .eslintrc.js
 .vscode
-test_images/
