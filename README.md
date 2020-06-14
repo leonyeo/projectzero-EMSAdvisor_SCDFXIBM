@@ -22,15 +22,21 @@ This repo contains our submission for the SCDF X IBM Lifesaver's Innovation Chal
 
 ### What's the problem?
 
-Part of the World Health Organization's guidance on limiting further spread of COVID-19 is to practice social distancing. As a result, schools in most affected areas are taking precautionary measures by closing their facilities. With school-aged children at home for an indeterminate amount of time,  keeping them engaged, entertained, and on top of their education is important.
+There is a limited amount of manpower in SCDF emergency medical services (EMS). Therefore, it is of utmost importance that EMS only tend to the critical cases instead of the non-emergency ones. People have misusing the EMS services for minor and less critical cases and this causes a wastage of SCDF's precious resources. As such, SCDF might possibly overlook people who are in dire need of help.
+On the other hand, there are also members of the public who avoid dialling 995 for EMS due to over-caution and misguided interpretations of the situation at hand.
+
+People may not be equipped with sufficient knowledge to identify the medical emergency, not to mention being able to offer medical help. 
 
 ### How can technology help?
 
-Schools and teachers can continue to engage with their students through virtual classrooms, and even create interactive spaces for classes. As parents face a new situation where they may need to homeschool their children, finding appropriate online resources is important as well.
+Our solution enables the members of the public to identify the current symptoms shown by the victim swiftly using image classification in the event that the members of the public are unable to gauge the severity of the situation.
+Our solution enables the members of the public to perform the suitable first aid measures according to the victim’s condition and mitigate the problem before the SCDF arrives to help the patient.
 
 ### The idea
 
-It's imperative that learning and creating can continue when educational institutions have to shift the way they teach in times of crises, such as the COVID-19 pandemic. Providing a set of open source tools, backed by IBM Cloud and Watson Services, will enable educators to more easily make content available for their students.
+Our solution, backed by IBM Cloud and Watson Services, will relieve the burden on SCDF of having to entertain non-emergency cases. We utilised the IBM Cloud Annotations and Watson Machine Learning Services to train an image classification model to decipher the conditions posed by the victim.  We trained the model using multiple images of people having medical conditions such as physical injury, cardiac arrest, falls, heat stroke. 
+
+The model is integrated with our front-end interface, the React webapp, so that the members of the public do not need to download a mobile application to access our solution.
 
 ## Demo video
 
