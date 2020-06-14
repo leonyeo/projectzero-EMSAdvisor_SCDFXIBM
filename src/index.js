@@ -290,9 +290,11 @@ class Questions extends React.Component {
     render() {
         return (
             <div style={{ padding: 30}}>
+                <h3>Features Identified</h3>
                 <Card style={{borderRadius: 20}} elevation={4}>
                     {this.renderPrediction()}
                 </Card>
+                <h3>Some Questions</h3>
                 {this.renderQuestions()}
                 <div style={{ padding: 10 }}>
                     <Grid container justify='center'>
