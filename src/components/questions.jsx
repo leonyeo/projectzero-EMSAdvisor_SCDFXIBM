@@ -41,10 +41,10 @@ const QuestionList = ({ question, tag, setAnswer }) => {
             <CardHeader style={{ backgroundColor: "#388186", color: "#ffffff" }} title={`Q${tag+1}`}
                 titleTypographyProps={{ variant: "subtitle1" }} />
             <CardActions style={{ backgroundColor: "#F9FAFB" }}>
-                <Typography className={classes.questionTitle} style={{ width: '80%', display: 'inline-block' }} >
+                <Typography className={classes.questionTitle} style={{ width: '60%', display: 'inline-block' }} >
                     {question}
                 </Typography>
-                <FormControlLabel style={{ width: '20%', display: 'inline-block' }}
+                <FormControlLabel style={{ width: '40%', display: 'inline-block' }}
                     control={<GreenCheckbox checked={state.checkedG} onChange={handleChange} name="checkedG" />}
                     label="Yes"
                 />
