@@ -1,6 +1,6 @@
 # EMS Advisor - SCDF X IBM Lifesaver's Innovation Challenge: Call for Code 2020
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Website](https://img.shields.io/badge/View-Website-blue)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 This repo contains our submission for the SCDF X IBM Lifesaver's Innovation Challenge: Call for Code 2020
 
@@ -11,7 +11,6 @@ This repo contains our submission for the SCDF X IBM Lifesaver's Innovation Chal
 1. [The architecture](#the-architecture)
 1. [Long description](#long-description)
 1. [Getting started](#getting-started)
-1. [Live demo](#live-demo)
 1. [Built with](#built-with)
 1. [Authors](#authors)
 1. [License](#license)
@@ -80,10 +79,6 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 You can also view it on your mobile browser by accessing the IP address provided in the cmd line.
-
-## Live demo
-
-You can find a running system to test at []()
 
 ## Built with
 
