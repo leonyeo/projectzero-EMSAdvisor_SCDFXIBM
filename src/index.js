@@ -11,6 +11,7 @@ import "./styles.css";
 
 import QuestionList from "./components/questions"
 import Diagnosis from "./components/diagnosis"
+import DiagnosisBleeding from "./components/diagnosis_bleeding"
 
 import Card from '@material-ui/core/Card';
 import {Typography} from '@material-ui/core';
@@ -212,6 +213,7 @@ class Questions extends React.Component {
             prediction: null,
             questions_list: null,
             answers: Array(3).fill(false),
+            path: null
         };
     }
 
@@ -298,14 +300,14 @@ class Questions extends React.Component {
                 {this.renderQuestions()}
                 <div style={{ padding: 10 }}>
                     <Grid container justify='center'>
-                        <Button 
+                       <Button 
                             style={{backgroundColor:"#388186", color:"#ffffff"}} 
                             variant="contained" 
                             component={Link} 
                             to={{
-                                pathname: "/diagnosis",
+                                pathname: this.state.path,
                                 state: {
-                                    condition: this.getCondition(),
+                                    condition: this.getCondition() == 'cardiac' ? this.state.path = '/diagnosis' : this.state.path = '/diagnosis_bleeding' ,
                                 }
                             }}
                         >
@@ -324,6 +326,7 @@ const routing = (
             <Route exact path="/" component={App} />
             <Route path="/questions" component={Questions} />
             <Route path="/diagnosis" component={Diagnosis} />
+            <Route path="/diagnosis_bleeding" component={DiagnosisBleeding} />
         </div>
     </Router>
 )
