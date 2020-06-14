@@ -1,6 +1,8 @@
 import React, { useState, useCallback, useEffect } from "react";
 import ReactDOM from "react-dom";
 
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+
 import MagicDropzone from "react-magic-dropzone";
 import models from "@cloud-annotations/models";
 
@@ -131,30 +133,29 @@ const ImageUpload = ({ setPrediction }) => {
     );
 
     return (
-        <div className={styles.wrapper}>
-            <MagicDropzone
-                className={styles.dropzone}
-                accept="image/jpeg, image/png, .jpg, .jpeg, .png"
-                multiple={false}
-                onDrop={onDrop}
-            >
-                {preview ? (
-                    <div className={styles.imageWrapper}>
-                        <img
-                            alt="upload preview"
-                            onLoad={onImageChange}
-                            className={styles.image}
-                            src={preview}
-                        />
-                    </div>
-                ) : model !== undefined ? (
-                    "Drag & Drop an Image to Test"
-                ) : (
-                            "Loading model..."
-                        )}
-                <canvas ref={setResultsCanvas} className={styles.canvas} />
-            </MagicDropzone>
-        </div>
+        <MagicDropzone
+            className={styles.dropzone}
+            accept="image/jpeg, image/png, .jpg, .jpeg, .png"
+            multiple={false}
+            onDrop={onDrop}
+        >
+
+            {preview ? (
+                <div className={styles.imageWrapper}>
+                    <img
+                        alt="upload preview"
+                        onLoad={onImageChange}
+                        className={styles.image}
+                        src={preview}
+                    />
+                </div>
+            ) : model !== undefined ? (
+                "Tap to Upload Image"
+            ) : (
+                "Loading model..."
+            )}
+            <canvas ref={setResultsCanvas} className={styles.canvas} />
+        </MagicDropzone>
     );
 };
 
@@ -187,26 +188,51 @@ class App extends React.Component {
             <div>
                 <ImageUpload setPrediction={(prediction) => this.setPrediction(prediction)} />
                 {this.renderPrediction()}
-                <div style={{ padding: 30}}>
-                    <div style={{ padding: 10 }}>
-                        <QuestionList question='Is he breathing lightly?' tag='Q1' />
-                    </div>
-                    <div style={{ padding: 10 }}>
-                        <QuestionList question='Is he wheezing?' tag='Q2' />
-                    </div>
-                    <div style={{ padding: 10 }}>
-                        <QuestionList question='Is he unconscious?' tag='Q3' />
-                    </div>
-                    {/* <div style={{ padding: 10 }}>
-                        <Button></Button>
-                    </div> */}
-                </div>
             </div>
         )
     }
 }
 
+class Questions extends React.Component {
+    render() {
+        return (
+            <div style={{ padding: 30}}>
+                <div style={{ padding: 10 }}>
+                    <QuestionList question='Is he breathing lightly?' tag='Q1' />
+                </div>
+                <div style={{ padding: 10 }}>
+                    <QuestionList question='Is he wheezing?' tag='Q2' />
+                </div>
+                <div style={{ padding: 10 }}>
+                    <QuestionList question='Is he unconscious?' tag='Q3' />
+                </div>
+                {/* <div style={{ padding: 10 }}>
+                    <Button></Button>
+                </div> */}
+            </div>
+        )
+    }
+}
+
+class Advice extends React.Component {
+    render() {
+        return (
+            null
+        )
+    }
+}
+
+const routing = (
+    <Router>
+        <div className={styles.wrapper}>
+            <Route exact path="/" component={App} />
+            <Route path="/questions" component={Questions} />
+            <Route path="/advice" component={Advice} />
+        </div>
+    </Router>
+)
+
 ReactDOM.render(
-    <App />,
+    routing,
     document.getElementById("root")
 );
