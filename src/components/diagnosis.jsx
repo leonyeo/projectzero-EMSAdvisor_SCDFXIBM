@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Typography, CardHeader } from '@material-ui/core';
+import { withStyles, Typography, CardHeader } from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -16,7 +16,7 @@ import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/Star';
 import MyImg from './cardiac_arrest.jpg';
 
-const useStyles = makeStyles({
+const useStyles = {
     root: {
         maxWidth: 450,
     },
@@ -34,7 +34,7 @@ const useStyles = makeStyles({
         fontSize: 20,
         fontWeight: "bolder"
     },
-});
+}
 
 class Diagnosis extends React.Component {
     constructor(props) {
@@ -53,17 +53,18 @@ class Diagnosis extends React.Component {
 
     render()
     {
+        const {classes} = this.props;
         return (
             <div className={styles.wrapper} style={{ overflow: 'auto' }}>
 
                 {this.state.step === 0 ? (
                     <div style={{ padding: 15 }}>
-                        <Card className={useStyles.root} elevation={4}>
+                        <Card className={classes.root} elevation={4}>
                             <CardHeader style={{ backgroundColor: "#388186", color: "#ffffff" }} title="Our Diagnosis"
                                 titleTypographyProps={{ variant: "subtitle1" }} />
                             <CardActionArea>
                                 <CardMedia
-                                    className={useStyles.media}
+                                    className={classes.media}
                                     src={MyImg} component="img"                            
                                 />
                                 <CardContent>
@@ -81,16 +82,16 @@ class Diagnosis extends React.Component {
 
                 {this.state.step > 0 ? (
                     <div style={{ padding: 15 }}>
-                        <Card className={useStyles.root} elevation={4}>
+                        <Card className={classes.root} elevation={4}>
                             <CardHeader style={{ backgroundColor: "#388186", color: "#ffffff" }} title="Recommended Actions"
                                 titleTypographyProps={{ variant: "subtitle1" }} />
                             <CardActions style={{ backgroundColor: "#F9FAFB" }}>
-                                {/* <Typography className={useStyles.questionTitle} >
+                                {/* <Typography className={classes.questionTitle} >
                                     Call for Ambulance
                         </Typography> */}
                                 <List component="nav" style={{ padding: 30 }}>
 
-                                    <ListItem className={useStyles.warning}>
+                                    <ListItem className={classes.warning}>
                                         <ListItemText disableTypography primary="Call for AMBULANCE" style={{ fontWeight: 'bold', fontSize: 25 }} />
                                     </ListItem>
 
@@ -111,7 +112,6 @@ class Diagnosis extends React.Component {
                                                 <ListItemText primary="Community First Responders will arrive shortly to perform CPR. Please assist the responder as necessary." />
                                             </ListItem>
                                         </div>
-                                        
                                     ) : null}
 
                                     {this.state.step === 2 ? (
@@ -178,4 +178,4 @@ class Diagnosis extends React.Component {
     }
 };
 
-export default Diagnosis;
+export default withStyles(useStyles)(Diagnosis);
