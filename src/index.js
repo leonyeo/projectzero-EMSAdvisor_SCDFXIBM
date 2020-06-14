@@ -312,20 +312,6 @@ class Questions extends React.Component {
                         >
                             DIAGNOSE
                         </Button>
-                        {/* :
-                        <Button 
-                            style={{backgroundColor:"#388186", color:"#ffffff"}} 
-                            variant="contained" 
-                            component={Link} 
-                            to={{
-                                pathname: "/diagnosis_bleeding",
-                                state: {
-                                    condition: this.getCondition(),
-                                }
-                            }}
-                        >
-                            DIAGNOSE
-                        </Button> */}
                     </Grid>
                 </div>
             </div>
