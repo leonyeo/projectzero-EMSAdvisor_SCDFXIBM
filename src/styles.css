@@ -11,6 +11,7 @@ body {
   --textInput: #f3f3f3;
   --textInputUnderline: #a7a7a7;
   --highlight: #eef4fc;
+  overflow-y: scroll; 
 }
 
 * {

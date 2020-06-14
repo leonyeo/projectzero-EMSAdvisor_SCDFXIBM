@@ -9,7 +9,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 500,
+        maxWidth: 400,
         borderRadius: 20
     },
 });
@@ -28,8 +28,8 @@ const QuestionList = ({ question, tag, setAnswer }) => {
     const classes = useStyles;
 
     const [state, setState] = React.useState({
-        checkedG: true,
-      });
+        checkedG: false,
+    });
 
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
@@ -41,7 +41,7 @@ const QuestionList = ({ question, tag, setAnswer }) => {
             <CardHeader style={{ backgroundColor: "#388186", color: "#ffffff" }} title={`Q${tag+1}`}
                 titleTypographyProps={{ variant: "subtitle1" }} />
             <CardActions style={{ backgroundColor: "#F9FAFB" }}>
-                <Typography className={classes.questionTitle} style={{ width: '80%', display: 'inline-block'}} >
+                <Typography className={classes.questionTitle} style={{ width: '80%', display: 'inline-block' }} >
                     {question}
                 </Typography>
                 <FormControlLabel style={{ width: '20%', display: 'inline-block' }}
