@@ -282,10 +282,10 @@ class Questions extends React.Component {
         let prediction = this.state.prediction;
         if (!prediction) return null;
         if (prediction[0] === "clutching chest") {
-            return 'cardiac'
+            this.props.history.push('/diagnosis')
         }
         else {
-            return '0'
+            this.props.history.push('/diagnosis_bleeding')
         }
     }
 
@@ -303,13 +303,7 @@ class Questions extends React.Component {
                        <Button 
                             style={{backgroundColor:"#388186", color:"#ffffff"}} 
                             variant="contained" 
-                            component={Link} 
-                            to={{
-                                pathname: this.state.path,
-                                state: {
-                                    condition: this.getCondition() == 'cardiac' ? this.state.path = '/diagnosis' : this.state.path = '/diagnosis_bleeding' ,
-                                }
-                            }}
+                            onClick={() => {this.getCondition()}}
                         >
                             DIAGNOSE
                         </Button>
